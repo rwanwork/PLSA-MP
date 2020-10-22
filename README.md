@@ -263,7 +263,7 @@ This software was implemented while I was at Kyoto University (around 2009).  My
 
 My homepage is [here](http://www.rwanwork.info/).
 
-The latest version of PLSA can be downloaded from [GitHub](https://github.com/rwanwork/PLSA-Base).
+The latest version of PLSA can be downloaded from [GitHub](https://github.com/rwanwork/PLSA-MP).
 
 If you have any information about bugs, suggestions for the documentation or just have some general comments, feel free to contact me via e-mail or GitHub.
 
