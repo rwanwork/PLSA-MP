@@ -1,5 +1,5 @@
 ###########################################################################
-##  PLSA-Base
+##  PLSA-MP
 ##  Probabilistic latent semantic analysis (PLSA, multiprocessor version)
 ##  
 ##  Copyright (C) 2009-2021 by Raymond Wan, All rights reserved.
@@ -25,9 +25,6 @@
 ##  Set the minimum required CMake version
 cmake_minimum_required (VERSION 3.5 FATAL_ERROR)
 
-##  Define the project
-project ("PLSA-MP" LANGUAGES C)
-
 
 ########################################
 ##  Define some variables
@@ -39,6 +36,9 @@ set (MY_C_FLAGS "-O3 -Wall -Wno-unused-result -Wno-unused-but-set-variable")
 
 set (TARGET_NAME_EXEC "plsa")
 set (CURR_PROJECT_NAME "PLSA-MP")
+
+##  Define the project
+project (${CURR_PROJECT_NAME} LANGUAGES C)
 
 
 ########################################
