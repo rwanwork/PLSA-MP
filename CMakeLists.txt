@@ -74,16 +74,16 @@ endif (OPENMP_FOUND)
 ########################################
 ##  Set various values based on libraries found
 
-IF (MPI_FOUND)
-  INCLUDE_DIRECTORIES (${MPI_INCLUDE_PATH})
-  SET (CMAKE_C_FLAGS "${CMAKE_C_FLAGS} ${MPI_COMPILE_FLAGS}")
-  SET (LINK_FLAGS "${LINK_FLAGS} ${MPI_LINK_FLAGS}")
-  SET (CMAKE_C_COMPILER "${MPI_COMPILER}")
-ENDIF (MPI_FOUND)
+if (MPI_FOUND)
+  include_directories (${MPI_INCLUDE_PATH})
+  set (CMAKE_C_FLAGS "${CMAKE_C_FLAGS} ${MPI_COMPILE_FLAGS}")
+  set (LINK_FLAGS "${LINK_FLAGS} ${MPI_LINK_FLAGS}")
+  set (CMAKE_C_COMPILER "${MPI_COMPILER}")
+endif (MPI_FOUND)
 
-IF (OPENMP_FOUND)
-  SET (CMAKE_C_FLAGS "${CMAKE_C_FLAGS} ${OpenMP_C_FLAGS}")
-ENDIF (OPENMP_FOUND)
+if (OPENMP_FOUND)
+  set (CMAKE_C_FLAGS "${CMAKE_C_FLAGS} ${OpenMP_C_FLAGS}")
+endif (OPENMP_FOUND)
 
 
 ########################################
