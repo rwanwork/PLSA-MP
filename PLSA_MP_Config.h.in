@@ -1,0 +1,20 @@
+/*******************************************************************/
+/*!
+    \file PLSA_MP_Config.h[.in]
+    PLSA_MP configuration file.
+    
+    \author Raymond Wan (r-wan@cb.k.u-tokyo.ac.jp)
+    \par Organizations
+          - Department of Computational Biology, Graduate School of
+            Frontier Science, University of Tokyo
+          - Computational Biology Research Center, AIST, Japan
+          
+*/
+/*******************************************************************/
+
+//  Set if OpenMP exists
+#cmakedefine01 HAVE_OPENMP
+
+//  Set if MPI exists
+#cmakedefine01 HAVE_MPI
+

@@ -17,9 +17,9 @@ Compiling
 
 The PLSA software is written in C and has been compiled using the GNU gcc compiler v4.1.2 under Linux.  OpenMP is included with the compiler and Open MPI v1.2.4 was used.  The system was tested on a 64-bit system, but does not make use of any features specific to 64-bit architectures.
 
-The PLSA system uses Autotools in order to create a Makefile which is configured to your system's settings.  This is done using the "configure" script.  Simply perform the following:
+The PLSA system uses [CMake](https://cmake.org/) in order to create a Makefile which is configured to your system's settings.  We suggest you perform an "out-of-source" build.  Simply perform the following:
 
-    ./configure;make
+    mkdir build; cd build; cmake ..; make
 
 
 Running PLSA

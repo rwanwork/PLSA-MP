@@ -25,7 +25,7 @@
 #include <time.h>
 #include <signal.h>
 
-#include "config.h"
+#include "PLSA_MP_Config.h"
 #if HAVE_MPI
 #include <mpi.h>
 #endif
