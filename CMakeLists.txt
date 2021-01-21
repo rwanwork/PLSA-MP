@@ -1,29 +1,50 @@
-################################################################################
+###########################################################################
+##  PLSA-Base
 ##  Probabilistic latent semantic analysis (PLSA, multiprocessor version)
-##  Copyright (C) 2021  by Raymond Wan (rwan.work@gmail.com)
-##
-##  This program is free software: you can redistribute it and/or modify
-##  it under the terms of the GNU General Public License as published by
-##  the Free Software Foundation, either version 3 of the License, or
-##  (at your option) any later version.
-##
-##  This program is distributed in the hope that it will be useful,
+##  
+##  Copyright (C) 2009-2021 by Raymond Wan, All rights reserved.
+##  Contact:  rwan.work@gmail.com
+##  
+##  This file is part of PLSA-MP.
+##  
+##  PLSA-MP is free software; you can redistribute it and/or 
+##  modify it under the terms of the GNU General Public License 
+##  as published by the Free Software Foundation; either version 
+##  3 of the License, or (at your option) any later version.
+##  
+##  PLSA-MP is distributed in the hope that it will be useful,
 ##  but WITHOUT ANY WARRANTY; without even the implied warranty of
 ##  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-##  GNU General Public License for more details.
-##
-##  You should have received a copy of the GNU General Public License
-##  along with this program.  If not, see <http://www.gnu.org/licenses/>.
-################################################################################
+##  GNU Lesser General Public License for more details.
+##  
+##  You should have received a copy of the GNU General Public 
+##  License along with PLSA-MP; if not, see 
+##  <http://www.gnu.org/licenses/>.
+###########################################################################
 
 ##  Set the minimum required CMake version
 cmake_minimum_required (VERSION 3.5 FATAL_ERROR)
 
 ##  Define the project
-project (plsa-mp LANGUAGES C)
+project ("PLSA-MP" LANGUAGES C)
 
-##  List of C source files
-set (PLSA_MP_SRCFILES 
+
+########################################
+##  Define some variables
+
+##  Testing compilation flags, some of which are suggested by the Valgrind 3.3 >
+# set (MY_C_FLAGS "-pedantic -Wno-long-long -g -fno-inline -O0 -Wall")
+##  Release compilation flags, suggested by the Valgrind 3.3 book
+set (MY_C_FLAGS "-O3 -Wall -Wno-unused-result -Wno-unused-but-set-variable")
+
+set (TARGET_NAME_EXEC "plsa")
+set (CURR_PROJECT_NAME "PLSA-MP")
+
+
+########################################
+##  Define the source files
+##  Source files for both the test executable and library
+set (SRC_FILES
   comm.c
   debug.c
   em-steps.c
@@ -81,10 +102,17 @@ include_directories (${CMAKE_CURRENT_BINARY_DIR})
   
 
 ########################################
+##  Set initial compilation flags
+
+##  Set compiler flags based on global variable
+set (CMAKE_C_FLAGS "${CMAKE_C_FLAGS} ${MY_C_FLAGS}")
+
+
+########################################
 ##  Define the executable
 
-add_executable (plsa ${PLSA_MP_SRCFILES})
+add_executable (${TARGET_NAME_EXEC} ${SRC_FILES})
 
 ##  Link the executable to the math library
-target_link_libraries (plsa m)
+target_link_libraries (${TARGET_NAME_EXEC} m)
 
